@@ -10,15 +10,21 @@
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.ItemId)
+    @Html.HiddenFor(model => model.ItemId)
 
-  @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
 
-  @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId")
+    @Html.LabelFor(model => model.Completed)
+    @Html.CheckBoxFor(model => model.Completed)
 
-  <input type="submit" value="Save" />
+    @Html.Label("Select category")
+    @Html.DropDownList("CategoryId")
+
+    @Html.LabelFor(model => model.DueDate, new {@type="date", required = "required" })
+    @Html.TextBoxFor(model => model.DueDate, new {@type="date", required = "required" })
+
+    <input type="submit" value="Save" />
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>

@@ -8,12 +8,21 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
 
-  @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId")
+    @Html.LabelFor(model => model.Completed)
+    @Html.CheckBoxFor(model => model.Completed)
+    //@Html.CheckBox("Completed", true)
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
+    @Html.Label("Select category")
+    @Html.DropDownList("CategoryId")
+
+
+    @Html.LabelFor(model => model.DueDate, new {@type="date", required = "required" })
+    @Html.TextBoxFor(model => model.DueDate, new {@type="date", required = "required" })
+
+
+    <input type="submit" value="Add new item" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all items", "Index")</p>
